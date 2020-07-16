@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <WebKit/WebKit.h>
 
 @protocol BNHtmlPdfKitDelegate;
 
@@ -314,25 +315,25 @@ Saves an html string to a PDF file.
 - (void)saveUrlAsPdf:(NSURL *)url toFile:(NSString *)file;
 
 /**
-Saves an webView to PDF data.
-
-@param webView The webView to save as a pdf.
-*/
-- (void)saveWebViewAsPdf:(UIWebView *)webView;
-
-/**
-Saves webView content to a PDF file.
-
-@param webView The webView to save as a pdf file.
-@param file The filename of the pdf file to save.
-*/
-- (void)saveWebViewAsPdf:(UIWebView *)webView toFile:(NSString *)file;
+ Saves an webView to PDF data.
+ 
+ @param webView The webView to save as a pdf.
+ */
+- (void)saveWebViewAsPdf:(WKWebView *)webView;
 
 /**
-Determine the preferred paper size for general printing. From Pierre Bernard.
+ Saves webView content to a PDF file.
+ 
+ @param webView The webView to save as a pdf file.
+ @param file The filename of the pdf file to save.
+ */
+- (void)saveWebViewAsPdf:(WKWebView *)webView toFile:(NSString *)file;
 
-@return paper size (currently: A4 or Letter).
-*/
+/**
+ Determine the preferred paper size for general printing. From Pierre Bernard.
+ 
+ @return paper size (currently: A4 or Letter).
+ */
 + (BNPageSize)defaultPageSize;
 
 @end;
