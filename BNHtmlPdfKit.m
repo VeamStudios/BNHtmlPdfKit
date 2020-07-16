@@ -376,12 +376,10 @@
 - (void)saveUrlAsPdf:(NSURL *)url toFile:(NSString *)file {
 	self.outputFile = file;
 
-    sself.webView = [[WKWebView alloc] init];
+    self.webView = [[WKWebView alloc] init];
     self.webView.navigationDelegate = self;
 
-	if ([self.webView respondsToSelector:@selector(setSuppressesIncrementalRendering:)]) {
-		[self.webView setSuppressesIncrementalRendering:YES];
-	}
+	self.webView.configuration.suppressesIncrementalRendering = YES;
 
 	[self.webView loadRequest:[NSURLRequest requestWithURL:url]];
 }

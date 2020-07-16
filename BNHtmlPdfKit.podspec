@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = 'BNHtmlPdfKit'
   s.version      = '0.6.0'
-  s.platform     = :ios
+  s.platform     = :ios, "8.0"
   s.summary      = 'Easily turn HTML data from an HTML string or URL into a PDF file on iOS.'
   s.homepage     = 'https://github.com/VeamStudios/BNHtmlPdfKit'
   s.author       = { 'Brent Nycum' => 'brentnycum@gmail.com' }
