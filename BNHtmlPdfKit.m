@@ -381,7 +381,11 @@
 
 	self.webView.configuration.suppressesIncrementalRendering = YES;
 
-	[self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+    if (@available(iOS 9.0, *)) {
+        [self.webView loadFileURL:url allowingReadAccessToURL:url.URLByDeletingLastPathComponent];
+    } else {
+        [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+    }
 }
 
 - (void)saveWebViewAsPdf:(WKWebView *)webView {
